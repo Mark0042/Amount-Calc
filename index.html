@@ -2,17 +2,19 @@
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <body>
+  <h1>Calculate your Return!</h1>
 
-<div data-ng-app="" data-ng-init="quantity=1;price=5">
+  Days you want to lend for:	<input type="number" name="a" id="a"><br>
+  Amount you want to lend:	<input type="number" name="b" id="b"><br>
+  <button onclick="add(document.getElementById('a').value,document.getElementById('b').value)">Calculate</button>
 
-<h2>Cost Calculator</h2>
-
-Quantity: <input type="number" ng-model="quantity">
-Price: <input type="number" ng-model="price">
-
-<p><b>Total in dollar:</b> {{quantity * price*2.2}}</p>
-
-</div>
-
+  <script>
+    function add(a, b) {
+      let days=parseInt(a, 10);
+      let amount=parseInt(b, 10);
+      let total=amount+((days*amount)/3000)*(4+(6/(1+(amount/1000)**2.321928)));
+      alert(total);
+    }
+  </script>
 </body>
 </html>
